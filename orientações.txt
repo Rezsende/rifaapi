@@ -13,3 +13,7 @@
 * apk add --no-cache bash
 *exit 
 *docker exec -it api-container bash
+
+# containei banco mais o volume mais o networ 
+docker run --name rifaPost -e POSTGRES_DB=bancorifa -e POSTGRES_USER=rifabv -e POSTGRES_PASSWORD=1234567 -p 5433:5432 -v bd:/var/lib/postgresql/data --network net-api-postgre -d postgres
+docker run --name rifaPost -e POSTGRES_DB=bancorifa -e POSTGRES_USER=rifabv -e POSTGRES_PASSWORD=1234567 -p 5433:5432 -v bd:/var/lib/postgresql/data --network net-api-postgre -d postgres
