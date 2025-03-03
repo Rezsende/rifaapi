@@ -5,6 +5,7 @@
 2º  Executar o contêiner
 
 * docker run -dp 3000:3000 --name api-container api-imagem
+* docker run -dp 3000:3000 --name api-container --network net-api-postgre api-imagem
 
 3º Interagi e entra no cointainer 
 * docker exec -it api-container sh

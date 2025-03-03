@@ -1,11 +1,21 @@
+const { PrismaClient } = require('@prisma/client')
 const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.json('Olá Mundo container!')
+const prisma = new PrismaClient()
+
+app.get('/', async (req, res) => {
+  try {
+    // Buscando todos os usuários da tabela Usuario
+    const lista = await prisma.usuario.findMany()
+    res.json(lista)  // Retorna a lista de usuários em formato JSON
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'Erro ao buscar usuários' })
+  }
 })
 
 app.listen(port, () => {
-  console.log(`App de exemplo esta rodando na porta ${port}`)
+  console.log(`App de exemplo está rodando na porta ${port}`)
 })
