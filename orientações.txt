@@ -1,0 +1,15 @@
+#### PARA CRIAR IMAGEM ######
+1º No terminal, dentro do diretório do projeto, execute:
+* docker build -t api-imagem .
+
+2º  Executar o contêiner
+
+* docker run -dp 3000:3000 --name api-container api-imagem
+
+3º Interagi e entra no cointainer 
+* docker exec -it api-container sh
+* apk add --no-cache nano
+  *nano index.js
+* apk add --no-cache bash
+*exit 
+*docker exec -it api-container bash
