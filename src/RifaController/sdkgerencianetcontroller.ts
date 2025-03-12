@@ -56,7 +56,7 @@ export class SdkGerenciaNet {
   };
   CriarPixImediato = async (req: Request, res: Response) => {
     try {
-      const { afiliado } = req.params;
+      // const { afiliado } = req.params;
       const { cpf, nome, original, email, telefone, detalhepix } = req.body;
       const body = {
         calendario: {
@@ -126,7 +126,7 @@ export class SdkGerenciaNet {
           pixcopiacola: dadosPessoais.pixcopiacola,
           link: dadosPessoais.link,
           qrcodeImagem: dadosPessoais.qrcodeImagem,
-          afiliado: afiliado,
+          //afiliado: afiliado,
           DetalhePix: {
             create: detalhepix.map((produto: DetalhePix) => ({
               produto: produto.produto, // Certifique-se de que cada objeto em detalhepix tem o campo 'produto'

@@ -8,7 +8,44 @@ datasource db {
 }
 
 model Usuario {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  cpf      String @unique
+  telefone String
+  rifa     Rifa[]
+}
+
+model Rifa {
+  id            Int      @id @default(autoincrement())
+  numeros       Int[]
+  createdAt     DateTime @default(now())
+  usuarioRifaId Int?
+  usuarioRifa   Usuario? @relation(fields: [usuarioRifaId], references: [id])
+}
+
+model DadosPix {
+  id           Int          @id @default(autoincrement())
+  nome         String
+  email        String
+  cpf          String
+  valor        String
+  telefone     String
+  txtid        String
+  criacao      DateTime     @default(now())
+  expiracao    Int
+  status       String
+  locId        Int
+  location     String
+  pixcopiacola String
+  link         String
+  qrcodeImagem String?
+  afiliado     String?
+  DetalhePix   DetalhePix[]
+}
+
+model DetalhePix {
+  id         Int      @id @default(autoincrement())
+  produto    String
+  dadosPixId Int // Chave estrangeira para DadosPix
+  dadosPix   DadosPix @relation(fields: [dadosPixId], references: [id])
 }
