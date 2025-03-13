@@ -9,10 +9,11 @@ COPY prisma ./prisma/
 COPY src/ ./src/
 COPY tsconfig.json ./
 COPY .env ./
-
+COPY certificados ./certificados/
 RUN rm -rf node_modules
 RUN npm install
 RUN npx prisma generate
+#RUN npx prisma migrate dev --name createdockker
 
 EXPOSE 3000
 CMD ["npm", "run", "dev"]

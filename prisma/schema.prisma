@@ -24,14 +24,14 @@ model Rifa {
 }
 
 model DadosPix {
-  id           Int          @id @default(autoincrement())
+  id           Int      @id @default(autoincrement())
   nome         String
   email        String
   cpf          String
   valor        String
   telefone     String
   txtid        String
-  criacao      DateTime     @default(now())
+  criacao      DateTime @default(now())
   expiracao    Int
   status       String
   locId        Int
@@ -39,8 +39,8 @@ model DadosPix {
   pixcopiacola String
   link         String
   qrcodeImagem String?
-  afiliado     String?
-  DetalhePix   DetalhePix[]
+
+  DetalhePix DetalhePix[]
 }
 
 model DetalhePix {

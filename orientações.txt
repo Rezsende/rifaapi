@@ -6,6 +6,7 @@
 
 * docker run -dp 3000:3000 --name api-container api-imagem
 * docker run -dp 3000:3000 --name api-container --network net-api-postgre api-imagem
+obs: tem que entar no api-container e roda a migrição na mao 
 
 3º Interagi e entra no cointainer 
 * docker exec -it api-container sh
@@ -17,4 +18,4 @@
 
 # containei banco mais o volume mais o networ 
 docker run --name rifaPost -e POSTGRES_DB=bancorifa -e POSTGRES_USER=rifabv -e POSTGRES_PASSWORD=1234567 -p 5433:5432 -v bd:/var/lib/postgresql/data --network net-api-postgre -d postgres
-docker run --name rifaPost -e POSTGRES_DB=bancorifa -e POSTGRES_USER=rifabv -e POSTGRES_PASSWORD=1234567 -p 5433:5432 -v bd:/var/lib/postgresql/data --network net-api-postgre -d postgres
+docker run --name rifaPost -e POSTGRES_DB=bancorifa -e POSTGRES_USER=rifabv -e POSTGRES_PASSWORD=1234567 -p 5433:5432 -v rv:/var/lib/postgresql/data --network net-api-postgre -d postgres

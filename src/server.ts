@@ -1,9 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import express, { Request, Response } from "express";
+import cors from "cors";
+
 import { router_sdkGrencia } from "./routers/routes_sdk_gerenciaNet";
 
 const app = express();
 app.use(router_sdkGrencia);
+app.use(cors());
 const port = 3000;
 const prisma = new PrismaClient();
 
